@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Listado de Medicamentos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+         
+    <h:body>      
+            
+            <h:dataTable value="#{articuloBean.medicamento}" var="articulo" styleClass="table">
+                <f:facet name="header">
+                    <h:outputText value="Listado de Medicamentos"/>
+                </f:facet>
+                <h:column>
+                    <f:facet name="header">Id</f:facet>
+                    #{articulo.id}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Nombre</f:facet>
+                    #{articulo.nombre}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Descripcion</f:facet>
+                    #{articulo.descripcion}
+                </h:column>
+            </h:dataTable>
+            <h:outputScript>
+                var tableHeader = document.getElementsByTagName('thead')[0];
+                tableHeader.classList.add("thead-dark");
+            </h:outputScript>
+    </h:body> 
+</html>
